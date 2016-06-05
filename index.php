@@ -20,9 +20,6 @@
 	<BODY>
 
 
-<p> Change of the content</p>
-
-
 
 		<script type="text/javascript" src="js/main.js"></script>
 	</BODY>
