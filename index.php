@@ -19,6 +19,7 @@
 	</HEAD>
 	<BODY>
 
+		<p> This is new text added</p>
 
 
 		<script type="text/javascript" src="js/main.js"></script>
