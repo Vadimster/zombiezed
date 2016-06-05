@@ -19,7 +19,6 @@
 	</HEAD>
 	<BODY>
 
-<p>This is a test environment for ZombieZed.</p>
 
 
 		<script type="text/javascript" src="js/main.js"></script>
