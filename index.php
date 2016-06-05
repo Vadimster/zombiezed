@@ -9,7 +9,8 @@
 <HTML>
 	<HEAD>
 		<meta charset="utf-8">
-		<TITLE>title</TITLE>
+		<link rel='icon' href='img/favicon.ico?v=2'/ >
+		<TITLE>ZZ Test</TITLE>
 		<script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/main.css" />
@@ -18,8 +19,8 @@
 	</HEAD>
 	<BODY>
 
-<p> Change of the content</p>
 
+<p> Change of the content</p>
 
 
 
