@@ -21,6 +21,8 @@
 
 		<p> This is new text added</p>
 		<p>Added one more paragraph<p>
+		<form>
+		</form>
 
 
 		<script type="text/javascript" src="js/main.js"></script>
