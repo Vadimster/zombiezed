@@ -11,17 +11,17 @@
 
 DB schema
 
-	table players_test  - TO BE CREATED
+	table players_test
 
-		id 				| smallint, autoincrement 		
+		id 				| smallint, autoincrement, primary key		
 		username 		| varchar (10)
-		password 		| varchar(32)
+		password 		| char(32), MD5
 		email 			| varchar(50)
-		signupIP		| varchar(15)
-		signupDate		| datetime
-		lastLoginDate	| datetime
-
+		signup_ip		| varchar(45)  // $_SERVER['REMOTE_ADDR']
+		signup_date		| datetime  // date("Y-m-d H:i:s")
+		last_login_date	| datetime
 */
+
 
 
 ?>

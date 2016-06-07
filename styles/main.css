@@ -1,0 +1,19 @@
+.globalWrapperTable{
+	display: table;
+    height: 100vh;
+    width: 100%;
+}
+
+.globalWrapperCell{
+	vertical-align: middle;
+    display: table-cell;
+}
+
+.globalContent{
+	position: relative;
+	margin: 0 auto;
+    height: 310px;
+    width: 500px;
+    border: 1px dotted blue;
+   /*  background-image: url("coa.png");  */
+}

@@ -1,10 +1,26 @@
 <?php 
+	
+	//PDHP Version 5.3.29
+
 	#include ('db.php');
 	#$dataBase = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);	
 	#PREPARE AND TRY	
 	#$statement = $dataBase->query('SELECT * FROM users');
 	#$rowCount = $statement->rowCount();
 	#echo 'There are currently ' . $rowCount . ' rows in the database';	
+
+ session_start();
+ //$_SESSION['value'] = 10;
+ //print $_SESSION['value'];
+
+/*
+if (isset($_SESSION)){
+   	print "Session is in progress";
+} else {
+	print "Session not started";   
+}
+*/
+
 ?>
 <HTML>
 	<HEAD>
@@ -17,7 +33,18 @@
 		<link rel="stylesheet" href="jquery/jquery-ui.min.css" /> 
 		<link rel="stylesheet" href="jquery/jquery-ui-config.css" /> 		
 	</HEAD>
+
 	<BODY>
+		<div class="globalWrapperTable">
+			<div class="globalWrapperCell">
+				<div class="globalContent">
+
+
+
+
+				</div>
+			</div>
+		</div>
 
 
 
