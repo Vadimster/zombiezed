@@ -1,0 +1,121 @@
+
+::-webkit-input-placeholder {
+   text-align: center;
+   line-height: 1.5em;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+   line-height: 1.5em;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center; 
+   line-height: 1.5em; 
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+   line-height: 1.5em;
+}
+
+
+.globalWrapperTable{
+  display: table;
+    height: 100vh;
+    width: 100%;
+}
+
+.globalWrapperCell{
+  vertical-align: middle;
+    display: table-cell;
+}
+
+.globalContent{
+  position: relative;
+  margin: 0 auto;
+    height: 310px;
+    width: 350px;
+    /* border: 1px dotted blue; */
+}
+
+
+
+#form-signup{
+    border: 1px solid black;
+    border-radius: 5px;
+    /* background-image:url(../img/signup/background.jpg);  */  
+}
+
+label{
+    display: inline-block;
+    width: 135px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+input{
+    border-radius: 5px;
+    background-color:transparent;
+}
+
+
+span.form-field-note{
+    display: block;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 20px;
+    font-size: 0.6em;
+    color: #808080;
+}
+
+span.form-field-error{
+    display: block;
+    position: absolute;
+    margin-top: -15px;
+    margin-left: 160px;
+    font-size: 0.6em;
+    color: red;
+}
+
+
+div.form-check-status{
+    display: inline-block;
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    margin-top: 10px;
+    margin-left: 5px;
+    /* border: 1px dotted green; */   
+    background-image: none;
+    background-repeat: no-repeat;
+}
+
+#signupUsername-status{
+  background-image: null;
+}
+
+#signupEmail-status{
+  background-image: null;
+}
+
+#signupConfirmPassword-status{
+  background-image: null;
+}
+
+#register-button{
+  width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid green;
+  border-radius: 5px;
+  /* Add button as background image + change background when on hover */   
+
+
+}
+
