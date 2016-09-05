@@ -11,7 +11,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=vadimlv_zombiezed_test', 'vadimlv_zo
 if($_POST['id'] === 'signupUsername'){	
 	$sql = 	"SELECT count(*) FROM players_test WHERE username = :value";
 	$stmt = $pdo->prepare($sql);
-	$value = filter_input(INPUT_POST, 'val', FILTER_SANITIZE_STRING); //sanitise
+	$value = filter_input(INPUT_POST, 'val', FILTER_SANITIZE_STRING); //create variable to be used in sql request and sanitise
 	$stmt->bindParam(':value', $value, PDO::PARAM_STR);
 	$stmt->execute();
 	$rows = $stmt->fetchColumn();
