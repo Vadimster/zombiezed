@@ -57,6 +57,9 @@ var signupValidate = function(elementID){ //checks a) if passwords match, b) if 
 						$('#'+elementID+'-status').css("background-image", "url(img/signup/yes.png)");	
 					}else if(response.status === 'error'){
 						console.log('PHP error: ' + response.description);
+					} else if (response.status === 2){
+						$('#signupEmail-status').css("background-image", "url(img/signup/no.png)");
+						$('#errorEmail').html('Not a valid email address.');
 					}			
 				}		
 			});
@@ -69,12 +72,42 @@ var signupRegister = function(){
 	var signupEmail  = $('#signupEmail').val();
 	var signupPassword  = $('#signupPassword').val();
 	var signupConfirmPassword  = $('#signupConfirmPassword').val();
-	
-	if(signupUsername !== '' && signupEmail !== '' && signupPassword !== '' && signupConfirmPassword !==''){
-		if(signupPassword === signupConfirmPassword){
-			if($('#errorUsername').text() !== 'Username is taken'){
-				if($('#errorEmail').text() !== 'Email already registered. <a href="">Forgot password?</a>'){
-				console.log('All is good can send ajax now');	
+
+	var data = {signupUsername:signupUsername, signupEmail:signupEmail, signupPassword:signupPassword, signupConfirmPassword:signupConfirmPassword};	
+					
+	if (signupUsername !== '' && signupEmail !== '' && signupPassword !== '' && signupConfirmPassword !==''){
+		if (signupPassword === signupConfirmPassword){
+			if ($('#errorUsername').text() !== 'Username is taken'){
+				if ($('#errorEmail').text() !== 'Email already registered. <a href="">Forgot password?</a>'){
+					console.log('All is good can send ajax now');
+					var data = {signupUsername:signupUsername, signupEmail:signupEmail, signupPassword:signupPassword, signupConfirmPassword:signupConfirmPassword};	
+					$.ajax({
+						url: 'php/signup.php',
+						dataType: 'json',
+						type: 'post',
+						data: data,
+						success: function(response){
+							// 2 = one of fields (username, email, password or confirmpassword are missing)
+							// 3 = passwords do not match
+							// 4 = username taken
+							// 5 = email address taken
+							// 6 = email address invalid (via PHP method)
+							if (response.status === 1){
+								console.log('player added to DB');
+								//redirect to game.php
+							} else if (response.status === 2){
+								console.log(response.description);
+							} else if (response.status === 3){
+								console.log(response.description);
+							} else if (response.status === 4){
+								console.log(response.description);
+							} else if (response.status === 5){
+								console.log(response.description);
+							} else if (response.status === 6){
+								console.log(response.description);
+							} 
+						}		
+					});
 				}				
 			}			
 		}

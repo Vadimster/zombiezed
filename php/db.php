@@ -1,11 +1,13 @@
 <?php
 
+//PHP Version 5.3.29
+
 //Database credentials
 
-	$dbHost = 'localhost';
-	$dbName = 'vadimlv_zombiezed_test';
-	$dbUser = 'vadimlv_zombie';
-	$dbPass = 'h7G5r4D3K';
+	 $dbHost = 'localhost';
+	 $dbName = 'vadimlv_zombiezed_test';
+	 $dbUser = 'vadimlv_zombie';
+	 $dbPass = 'h7G5r4D3K';
 
 /*
 
