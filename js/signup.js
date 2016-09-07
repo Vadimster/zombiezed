@@ -94,6 +94,10 @@ var signupRegister = function(){
 							// 6 = email address invalid (via PHP method)
 							if (response.status === 1){
 								console.log('player added to DB');
+								window.location.href = '/zombiezed/vadim-test/game.php';
+								
+
+
 								//redirect to game.php
 							} else if (response.status === 2){
 								console.log(response.description);

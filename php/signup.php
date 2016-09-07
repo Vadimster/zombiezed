@@ -41,7 +41,6 @@ require_once('db.php');
 					$json['description'] = "Username is taken";
 				} else {
 					//username is available, will check email in DB
-					$pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass); //opening connection
 					$sql = 	"SELECT count(*) FROM players_test WHERE email = :value";
 					$stmt = $pdo->prepare($sql);
 					$value = filter_input(INPUT_POST, 'signupEmail', FILTER_SANITIZE_STRING); 
@@ -53,7 +52,24 @@ require_once('db.php');
 						$json['description'] = "Email address is taken";
 
 					} else {
-						//all is good let us proceed with player registration in DB
+						//all is good let us proceed with adding player into DB
+						$sql = "INSERT INTO players_test (username, password, email, signup_ip, signup_date, last_login_date) VALUES (:username, :password, :email, :signup_ip, :signup_date, :last_login_date)";
+						$stmt = $pdo->prepare($sql);
+							$username = filter_input(INPUT_POST, 'signupUsername', FILTER_SANITIZE_STRING);
+							$password_hash = md5($password);
+							$email = filter_input(INPUT_POST, 'signupEmail', FILTER_SANITIZE_STRING);
+							$signup_ip = $_SERVER['REMOTE_ADDR'];						
+						$stmt->bindParam(':username', $username, PDO::PARAM_STR);
+						$stmt->bindParam(':password', $password_hash, PDO::PARAM_STR);
+						$stmt->bindParam(':email', $email, PDO::PARAM_STR);
+						$stmt->bindParam(':signup_ip', $signup_ip, PDO::PARAM_STR);
+						$stmt->bindParam(':signup_date', date("Y-m-d H:i:s"), PDO::PARAM_STR);
+						$stmt->bindParam(':last_login_date', date("Y-m-d H:i:s"), PDO::PARAM_STR);
+						$stmt->execute();
+
+						//QUERY FOR PLAYER ID
+						//ADD PLAYER ID as a new parameter to $_SESSION!   $_SESSION['user_id'] 
+
 						$json['status'] = 1;
 					}
 				}

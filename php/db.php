@@ -19,8 +19,8 @@ DB schema
 		username 		| varchar (10)
 		password 		| char(32), MD5
 		email 			| varchar(50)
-		signup_ip		| varchar(45)  // $_SERVER['REMOTE_ADDR']
-		signup_date		| datetime  // date("Y-m-d H:i:s")
+		signup_ip		| varchar(45) 
+		signup_date		| datetime  
 		last_login_date	| datetime
 */
 
