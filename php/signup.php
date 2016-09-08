@@ -12,7 +12,7 @@ require_once('db.php');
 			// 4 = username taken
 			// 5 = email address taken
 			// 6 = email address invalid
-		"description" => null
+		"description" => 100
 	);
 
 	if($_POST['signupUsername'] == "" || $_POST['signupEmail'] == "" || $_POST['signupPassword'] == "" || $_POST['signupConfirmPassword'] == "" ){
@@ -66,11 +66,21 @@ require_once('db.php');
 						$stmt->bindParam(':signup_date', date("Y-m-d H:i:s"), PDO::PARAM_STR);
 						$stmt->bindParam(':last_login_date', date("Y-m-d H:i:s"), PDO::PARAM_STR);
 						$stmt->execute();
+						$player_id = $pdo->lastInsertId(); //get player ID in the DB
 
-						//QUERY FOR PLAYER ID
-						//ADD PLAYER ID as a new parameter to $_SESSION!   $_SESSION['user_id'] 
+							/* Below is more weight code with SELECT query and parameterisation. But since 'id' column reflects each INSERT and autoincrements then it makes sense to utilise lastInsertId() directly
+							$id = $pdo->lastInsertId();
+							$stmt = $pdo->prepare("SELECT id FROM players_test WHERE id= :id");
+							$stmt->bindParam(':id', $id);
+							$stmt->execute();
+							$result = $stmt->fetch(PDO::FETCH_ASSOC);
+							$player_id = $result["id"];
+							*/
+						
+						$_SESSION['player_id'] = $player_id;	
 
 						$json['status'] = 1;
+						$json['description'] = $player_id;
 					}
 				}
 			}

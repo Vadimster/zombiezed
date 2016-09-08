@@ -3,6 +3,8 @@ session_start();
 
 //ajax will make call to retrieve player's information using the ID. If $_SESSION['id'] is not set nothing will be retrieved.
 //JS will only start to populate the data (or actualy draw a page, may be a spinner "loading your game" if $_SESSION variable is set on PHP and PHP responds with OK callback to AJAX function which is executed on window.ready
+print $_SESSION['player_id'];
+
 ?>
 
 <HTML>
