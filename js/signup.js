@@ -60,7 +60,10 @@ var signupValidate = function(elementID){ //checks a) if passwords match, b) if 
 					} else if (response.status === 2){
 						$('#signupEmail-status').css("background-image", "url(img/signup/no.png)");
 						$('#errorEmail').html('Not a valid email address.');
-					}			
+					} else if (response.status === 3){
+						$('#signupUsername-status').css("background-image", "url(img/signup/no.png)");
+						$('#errorUsername').html('Invalid characters in username');
+					}		
 				}		
 			});
 		}
@@ -92,14 +95,10 @@ var signupRegister = function(){
 							// 4 = username taken
 							// 5 = email address taken
 							// 6 = email address invalid (via PHP method)
+							// 7 = username contains invalid characters
 							if (response.status === 1){
-								//console.log('player added to DB. PlayerID is ' + response.description);
-								
-								window.location.href = '/zombiezed/vadim-test/game.php';
-								
-
-
-								//redirect to game.php
+								//console.log('player added to DB. PlayerID is ' + response.description);								
+								window.location.href = '/zombiezed/vadim-test/game.php'; //redirect to game.php									
 							} else if (response.status === 2){
 								console.log(response.description);
 							} else if (response.status === 3){
@@ -110,7 +109,9 @@ var signupRegister = function(){
 								console.log(response.description);
 							} else if (response.status === 6){
 								console.log(response.description);
-							} 
+							} else if (response.status === 7){
+								console.log(response.description);
+							}
 						}		
 					});
 				}				

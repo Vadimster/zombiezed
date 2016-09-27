@@ -12,6 +12,7 @@ require_once('db.php');
 			// 4 = username taken
 			// 5 = email address taken
 			// 6 = email address invalid
+			// 7 = invalid characters in usernmae
 		"description" => 100
 	);
 
@@ -23,10 +24,12 @@ require_once('db.php');
 			$json['status'] = 3;
 			$json['description'] = "Passwords do not match";
 		} else {
-
 			if (!filter_var($_POST['signupEmail'], FILTER_VALIDATE_EMAIL)){
 				$json['status'] = 6; 
 				$json['description'] = "Email address is invalid";
+			} else if(preg_match("/[^A-Za-z0-9]/", $_POST['signupUsername'])){
+				$json['status'] = 7; 
+				$json['description'] = "Invalid characters in username";
 			} else {
 			//will check if username is available in db
 				$pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass); //opening connection
@@ -55,8 +58,8 @@ require_once('db.php');
 						//all is good let us proceed with adding player into DB
 						$sql = "INSERT INTO players_test (username, password, email, signup_ip, signup_date, last_login_date) VALUES (:username, :password, :email, :signup_ip, :signup_date, :last_login_date)";
 						$stmt = $pdo->prepare($sql);
-							$username = filter_input(INPUT_POST, 'signupUsername', FILTER_SANITIZE_STRING);
-							$password_hash = md5($password);
+							$username = filter_input(INPUT_POST, 'signupUsername', FILTER_SANITIZE_STRING);							
+							$password_hash = md5($_POST['signupPassword']);
 							$email = filter_input(INPUT_POST, 'signupEmail', FILTER_SANITIZE_STRING);
 							$signup_ip = $_SERVER['REMOTE_ADDR'];						
 						$stmt->bindParam(':username', $username, PDO::PARAM_STR);
@@ -77,15 +80,43 @@ require_once('db.php');
 							$player_id = $result["id"];
 							*/
 						
-						$_SESSION['player_id'] = $player_id;	
+						$_SESSION['player_id'] = $player_id;
+
+
+						//ADD PLAYER STATS
+						//CREATE MAP IN DB	
 
 						$json['status'] = 1;
 						$json['description'] = $player_id;
+
+
+						//send welcome email
+						ini_set( 'display_errors', 1 );
+					    error_reporting( E_ALL );					
+					    $to = "vadimke@gmail.com"; //$_POST['signupEmail']
+					    $subject = "Welcome to ZombieZed!";
+					    $message = "
+					    	<html>
+					    		<head>
+									<title>HTML email</title>
+								</head>
+								<body>
+									<p>Welcome, ".$_POST['signupUsername']."!</p>
+								</body>
+					    	</html>
+					    ";
+
+					    $headers = "From: game@zombiezed.com\r\n";
+							$headers.= "MIME-Version: 1.0\r\n"; 
+							$headers.= "Content-Type: text/html; charset=ISO-8859-1\r\n"; 
+							$headers.= "X-Priority: 1\r\n"; 
+					    mail($to,$subject,$message, $headers);
+
 					}
 				}
 			}
 		}
-		$pdo = null; // THINK OF WHERE TO SET THIS
+		$pdo = null; 
 	}
 
 	echo json_encode($json);
