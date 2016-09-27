@@ -27,10 +27,10 @@ DB schema
 	table players_stats_test
 
 
-		id 				| smallint, autoincrement, primary key
-		population		| smallint
-		food 			| int
-		water 			| int
+		id 				| smallint, unsigned, autoincrement, primary key
+		population		| smallint, unsigned
+		food 			| mediumint, unsigned
+		water 			| mediumint, unsigned
 
 */
 

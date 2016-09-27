@@ -2,7 +2,7 @@
 session_start();
 
 //ajax will make call to retrieve player's information using the ID. If $_SESSION['id'] is not set nothing will be retrieved.
-//JS will only start to populate the data (or actualy draw a page, may be a spinner "loading your game" if $_SESSION variable is set on PHP and PHP responds with OK callback to AJAX function which is executed on window.ready
+//JS will only start to populate the data (or actualy draw a page, may be a spinner "loading your game" if $_SESSION variable is set on PHP and PHP responds with OK callback to AJAX function which is executed on document.ready
 
 ?>
 
@@ -14,12 +14,34 @@ session_start();
 		<script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
 		<link rel="stylesheet" href="jquery/jquery-ui.min.css" /> 
-		<link rel="stylesheet" href="jquery/jquery-ui-config.css" /> 		
+		<link rel="stylesheet" href="jquery/jquery-ui-config.css" /> 
+		<link rel="stylesheet" href="styles/game.css" /> 		
 	</HEAD>
 
 	<BODY>
 
-		<p> Welcome to game screen, retrieving player data from DB...</p>
+		<div class="spinner"></div>
+		<div class="test"></div>
+
+		<div class="flex" id="player-stats-container">
+		  <div class="player-stats-item">
+		    <div class="centered" id="player-stats-item-username">Vadimster</div>
+		    <div class="stats-value" id="player-stats-item-logout"><a href="javascript:alert('You clicked!')">Logout</a></div>
+		  </div>
+		  <div class="player-stats-item">
+		    <div id="player-stats-item-population-img" title="Population"></div>
+		    <div class="stats-value" id="player-stats-item-population-val">0</div>
+		  </div>
+		  <div class="player-stats-item">
+		    <div id="player-stats-item-food-img" title="Food"></div>
+		    <div class="stats-value" id="player-stats-item-food-val">0</div>
+
+		  </div>
+		  <div class="player-stats-item">
+		    <div id="player-stats-item-water-img" title="Water"></div>
+		    <div class="stats-value" id="player-stats-item-water-val">0</div>
+		  </div>
+		</div>
 
 	</BODY>
 </HTML>
@@ -35,11 +57,19 @@ session_start();
 				data: data,
 				success: function(response){
 					if(response.status === 1){
-						$('p').html('You are now logged in as ' + response.username + '. Player id in DB is: ' + response.playerID);
+						//build the page accordingly.
+						$('.spinner').hide();
+						//$('.spinner').remove();
+						//$('.test').show();
+						$('#player-stats-container').css('display','flex');
+
+						//$('.test').html('You are now logged in as ' + response.username + '. Player id in DB is: ' + response.playerID);
 						//$('p').html('Session is SET');
 
 					} else {
-						$('p').html('Session not found, please login to load your game');
+						$('.spinner').hide();
+						$('.test').show();
+						$('.test').html('ERROR. Session not found, please login to load your game');
 
 					}
 
