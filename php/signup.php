@@ -80,14 +80,29 @@ require_once('db.php');
 							$player_id = $result["id"];
 							*/
 						
-						$_SESSION['player_id'] = $player_id;
+						$_SESSION['player_id'] = $player_id; //writing global variable to be used in further requests.
 
 
-						//ADD PLAYER STATS
+						//ADD STARTING PLAYER STATS
+
+						$population_start = 3;
+						$food_start = 20;
+						$water_start = 15;
+
+						$sql = "INSERT INTO players_stats_test (id, population, food, water) VALUES (:player_id, :population_start, :food_start, :water_start)";
+						$stmt = $pdo->prepare($sql);
+						$stmt->bindParam(':player_id', $player_id, PDO::PARAM_INT);
+						$stmt->bindParam(':population_start', $population_start, PDO::PARAM_INT);
+						$stmt->bindParam(':food_start', $food_start, PDO::PARAM_INT);
+						$stmt->bindParam(':water_start', $water_start, PDO::PARAM_INT);
+						$stmt->execute();				
+
+
+
 						//CREATE MAP IN DB	
 
-						$json['status'] = 1;
-						$json['description'] = $player_id;
+						
+						$json['status'] = 1;						
 
 
 						//send welcome email

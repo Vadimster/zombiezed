@@ -22,6 +22,16 @@ DB schema
 		signup_ip		| varchar(45) 
 		signup_date		| datetime  
 		last_login_date	| datetime
+
+	
+	table players_stats_test
+
+
+		id 				| smallint, autoincrement, primary key
+		population		| smallint
+		food 			| int
+		water 			| int
+
 */
 
 
