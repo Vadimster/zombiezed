@@ -135,6 +135,34 @@ var signupRegister = function(){
 
 };
 
+
+var signupLogin = function(){
+	console.log('signupLogin() launched');
+
+	$('#form-signup, #register-button, #player-login').addClass('blur');
+
+	$('#player-login-dialog')
+		.dialog(
+			{ 
+				draggable: false,
+				resizable: false,
+				modal: true,
+				width: 370,
+				height: 275,
+				closeOnEscape: true,
+				//dialogClass: "no-close", //ensures there is a close button
+				position: { my: "center center", at: "center", of: ".globalContent", within: ".globalContent"},
+				close: function(event, ui){
+					console.log('dialogue closed');
+					$('#form-signup, #register-button, #player-login').removeClass('blur');
+				},
+				buttons: { "Login": function() { 
+				//$(this).dialog("close"); } 
+					console.log('capture form data and launch AJAX');
+				} }  //
+			}); //creates the dialogue
+};
+
 /*
 AJAX SERIALISE
 

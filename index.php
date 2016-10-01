@@ -18,7 +18,7 @@ session_start();
 		<div class="globalWrapperTable">
 			<div class="globalWrapperCell">
 				<div class="globalContent"> <!-- cgeck if this div is global? May be this can be pure signup form div? --> 
-					<form id="form-signup" onsubmit="return false;">
+					<form id="form-signup" onsubmit="return false">
 						<!-- onkeyup: function to restrict input on front end through regex -->
 						<!-- onblur: once field loses focus this is when field value check to be performed against the DB-->
 						<!-- onfocus: when cursor set in the field idea is to clear any error messages the form might have. Such error is placed in a specific div. Function could be emptyElement('elementID') and can be used for other purposes too.-->
@@ -48,16 +48,20 @@ session_start();
 					<div id="register-button" onclick="signupRegister()">REGISTER</div>
 					<div id="player-login">
 						<div id="player-login-icon"></div>
-						<div id="player-login-text">Existing leaders login <a href="#">here</a></div>	
+						<div id="player-login-text">Existing leaders login <a href="javascript:signupLogin()">here</a></div>	
 					</div>
-
-
-
-
 				</div>
 			</div>
 		</div>
 
+		<div id="player-login-dialog">
+			<form id="form-login" onsubmit="return false">
+				<label for="">Username:</label>
+				<input type="text" maxlength="10">
+				<label for="">Password:</label>
+				<input type="password">
+			</form>
+		</div>
 
 
 		<script type="text/javascript" src="js/signup.js"></script>

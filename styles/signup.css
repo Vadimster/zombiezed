@@ -48,6 +48,11 @@ body {
     /* border: 1px dotted blue; */
 }
 
+.blur {
+-webkit-filter: blur(3px);
+-moz-filter: blur(3px);
+filter: blur(3px);
+}
 
 
 #form-signup{
@@ -144,3 +149,15 @@ div.form-check-status{
   background-image: url("../img/signup/padlock.png");
   margin-right: 15px;
 }
+
+#player-login-dialog{
+  display: none;
+  width: 370px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+  line-height: 1.5em;
+  font-size: 0.8em; 
+}
+
+
