@@ -1,17 +1,5 @@
 <?php 
 session_start();
-	
-	 
- //$_SESSION['value'] = 10;
- //print $_SESSION['value'];
-
-/*
-if (isset($_SESSION)){
-   	print "Session is in progress";
-} else {
-	print "Session not started";   
-}
-*/
 
 ?>
 <HTML>
@@ -58,6 +46,10 @@ if (isset($_SESSION)){
 							<br />							
 					</form>
 					<div id="register-button" onclick="signupRegister()">REGISTER</div>
+					<div id="player-login">
+						<div id="player-login-icon"></div>
+						<div id="player-login-text">Existing leaders login <a href="#">here</a></div>	
+					</div>
 
 
 
