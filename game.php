@@ -25,8 +25,8 @@ session_start();
 
 		<div class="flex" id="player-stats-container">
 		  <div class="player-stats-item">
-		    <div class="centered" id="player-stats-item-username">Vadimster</div>
-		    <div class="stats-value" id="player-stats-item-logout"><a href="javascript:alert('You clicked!')">Logout</a></div>
+		    <div class="centered" id="player-stats-item-username">Placeholder</div>
+		    <div class="stats-value" id="player-stats-item-logout"><a href="php/logout.php">Logout</a></div><!-- a href="javascript:alert('You clicked!')" -->
 		  </div>
 		  <div class="player-stats-item">
 		    <div id="player-stats-item-population-img" title="Population"></div>
