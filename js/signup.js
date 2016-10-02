@@ -22,7 +22,9 @@ var signupEmptyElement = function(elementID){
 
 	} else if(elementID === 'errorPassword'){
 		$('#signupConfirmPassword-status').css("background-image", "none");
-	}	
+	} else if(elementID === 'login-error'){
+		$('#login-error').empty().css("background-image", "none");
+	}
 };
 
 var signupValidate = function(elementID){ //checks a) if passwords match, b) if username/email address already exists in DB before form is submitted for processing
@@ -82,7 +84,8 @@ var signupRegister = function(){
 		if (signupPassword === signupConfirmPassword){
 			if ($('#errorUsername').text() !== 'Username is taken'){
 				if ($('#errorEmail').text() !== 'Email already registered. <a href="">Forgot password?</a>'){
-					console.log('All is good can send ajax now');
+					//console.log('All is good can send ajax now');
+					$('#register-button').empty().css("background-image", "url(img/signup/spinner.gif)");
 					var data = {signupUsername:signupUsername, signupEmail:signupEmail, signupPassword:signupPassword, signupConfirmPassword:signupConfirmPassword};	
 					$.ajax({
 						url: 'php/signup.php',
@@ -101,16 +104,22 @@ var signupRegister = function(){
 								window.location.href = '/zombiezed/vadim-test/game.php'; //redirect to game.php									
 							} else if (response.status === 2){
 								console.log(response.description);
+								$('#register-button').css("background-image", "none").html("REGISTER");
 							} else if (response.status === 3){
 								console.log(response.description);
+								$('#register-button').css("background-image", "none").html("REGISTER");
 							} else if (response.status === 4){
 								console.log(response.description);
+								$('#register-button').css("background-image", "none").html("REGISTER");
 							} else if (response.status === 5){
 								console.log(response.description);
+								$('#register-button').css("background-image", "none").html("REGISTER");
 							} else if (response.status === 6){
 								console.log(response.description);
+								$('#register-button').css("background-image", "none").html("REGISTER");
 							} else if (response.status === 7){
 								console.log(response.description);
+								$('#register-button').css("background-image", "none").html("REGISTER");
 							}
 						}		
 					});
@@ -137,8 +146,9 @@ var signupRegister = function(){
 
 
 var signupLogin = function(){
-	console.log('signupLogin() launched');
-
+	//console.log('signupLogin() launched');
+	$('#login-error').empty();
+	//add gif
 	$('#form-signup, #register-button, #player-login').addClass('blur');
 
 	$('#player-login-dialog')
@@ -147,8 +157,8 @@ var signupLogin = function(){
 				draggable: false,
 				resizable: false,
 				modal: true,
-				width: 370,
-				height: 275,
+				width: 400,
+				height: 300,
 				closeOnEscape: true,
 				//dialogClass: "no-close", //ensures there is a close button
 				position: { my: "center center", at: "center", of: ".globalContent", within: ".globalContent"},
@@ -158,7 +168,25 @@ var signupLogin = function(){
 				},
 				buttons: { "Login": function() { 
 				//$(this).dialog("close"); } 
-					console.log('capture form data and launch AJAX');
+					$('#login-error').css("background-image", "url(img/signup/spinner.gif)");
+					var loginUsername = $('#login-username').val();
+					var loginPassword = $('#login-password').val();
+					console.log(loginUsername +' | '+loginPassword);
+					var data = {username:loginUsername, password:loginPassword};
+
+					$.ajax({
+						url: 'php/login.php',
+						dataType: 'json',
+						type: 'post',
+						data: data,
+						success: function(response){							
+							if (response.status === 1){															
+								window.location.href = '/zombiezed/vadim-test/game.php'; //redirect to game.php									
+							} else {								
+								$('#login-error').empty().css("background-image", "none").html(response.description);								
+							} 
+						}		
+					});
 				} }  //
 			}); //creates the dialogue
 };

@@ -119,15 +119,19 @@ div.form-check-status{
   background-image: null;
 }
 
-#register-button{
+#register-button{ 
   width: 100px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin-top: 10px;
   text-align: center;
   margin: 0 auto;
   border: 1px solid green;
   border-radius: 5px;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center; 
   /* Add button as background image + change background when on hover */   
 
 
@@ -160,4 +164,13 @@ div.form-check-status{
   font-size: 0.8em; 
 }
 
+#login-error{ 
+  text-align: center;
+  padding: 5px;
+  color: red;
+  margin: 0 auto;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center; 
+}
 

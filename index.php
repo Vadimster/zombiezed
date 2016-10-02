@@ -57,10 +57,12 @@ session_start();
 		<div id="player-login-dialog">
 			<form id="form-login" onsubmit="return false">
 				<label for="">Username:</label>
-				<input type="text" maxlength="10">
+				<input id="login-username" type="text" maxlength="10" onfocus="signupEmptyElement('login-error')">
 				<label for="">Password:</label>
-				<input type="password">
+				<input id="login-password" type="password" onfocus="signupEmptyElement('login-error')">
+				<div id="login-error"></div>
 			</form>
+
 		</div>
 
 
