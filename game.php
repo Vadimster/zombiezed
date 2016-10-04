@@ -20,65 +20,58 @@ session_start();
 
 	<BODY>
 
-		<div class="spinner"></div>
-		<div class="test"></div>
 
-		<div class="flex" id="player-stats-container">
-		  <div class="player-stats-item">
-		    <div class="centered" id="player-stats-item-username">Placeholder</div>
-		    <div class="stats-value" id="player-stats-item-logout"><a href="php/logout.php">Logout</a></div><!-- a href="javascript:alert('You clicked!')" -->
-		  </div>
-		  <div class="player-stats-item">
-		    <div id="player-stats-item-population-img" title="Population"></div>
-		    <div class="stats-value" id="player-stats-item-population-val">0</div>
-		  </div>
-		  <div class="player-stats-item">
-		    <div id="player-stats-item-food-img" title="Food"></div>
-		    <div class="stats-value" id="player-stats-item-food-val">0</div>
+		<?php if(isset($_SESSION['player_id'])){  ?> 
+			<div class="flex" id="player-stats-container">
+			  <div class="player-stats-item">
+			    <div class="centered spinner" id="player-stats-item-username"></div>
+			    <div class="stats-value" id="player-stats-item-logout"><a href="php/logout.php">Logout</a></div><!-- a href="javascript:alert('You clicked!')" -->
+			  </div>
+			  <div class="player-stats-item">
+			    <div id="player-stats-item-population-img" title="Population"></div>
+			    <div class="stats-value spinner" id="player-stats-item-population-val"></div>
+			  </div>
+			  <div class="player-stats-item">
+			    <div id="player-stats-item-food-img" title="Food"></div>
+			    <div class="stats-value spinner" id="player-stats-item-food-val"></div>
 
-		  </div>
-		  <div class="player-stats-item">
-		    <div id="player-stats-item-water-img" title="Water"></div>
-		    <div class="stats-value" id="player-stats-item-water-val">0</div>
-		  </div>
-		</div>
+			  </div>
+			  <div class="player-stats-item">
+			    <div id="player-stats-item-water-img" title="Water"></div>
+			    <div class="stats-value spinner" id="player-stats-item-water-val"></div>
+			  </div>
+			</div>
+			
+			<script>
+				$(document).ready(function() {
+			    	//console.log('Document ready!');				
+			    	var data = {action: 'loadPlayerData'};
+						$.ajax({
+							url: 'php/load_game.php',
+							dataType: 'json',
+							type: 'post',
+							data: data,
+							success: function(response){
+								if(response.status === 1){
+									//update divs accordingly formt the array passed from DB.
+									$('#player-stats-item-username').removeClass('spinner');
+									$('#player-stats-item-username').html(response.username);
 
+								} else {
+									alert('Game data cannot be loaded, pelase refresh the page or try later');
+
+								}
+
+							}		
+						});
+				});
+			</script>
+
+		<?php } else { ?>
+			<p>No session found. Please <a href="http://www.arsenij.eu/zombiezed/vadim-test/index.php">login</a></p>
+		<?php } ?>
 	</BODY>
 </HTML>
-
-<script>		
-	$(document).ready(function() {
-    	//retrieve usernamefrom DB for the user
-    	var data = {action: 'loadPlayerData'};
-			$.ajax({
-				url: 'php/load_game.php',
-				dataType: 'json',
-				type: 'post',
-				data: data,
-				success: function(response){
-					if(response.status === 1){
-						//build the page accordingly.
-						$('.spinner').hide();
-						//$('.spinner').remove();
-						//$('.test').show();
-						$('#player-stats-container').css('display','flex');
-
-						//$('.test').html('You are now logged in as ' + response.username + '. Player id in DB is: ' + response.playerID);
-						//$('p').html('Session is SET');
-
-					} else {
-						$('.spinner').hide();
-						$('.test').show();
-						$('.test').html('ERROR. Session not found, please login to load your game');
-
-					}
-
-				}		
-			});
-
-	});
-
-</script>
 
 
 <script type="text/javascript" src="js/signup.js"></script>

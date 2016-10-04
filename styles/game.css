@@ -59,7 +59,7 @@ body {
   margin-top: 5px;
   align-items: center;
   justify-content: center;
-  display: none;
+  display: flex;
 }
 
 #player-stats-item-population-img{
