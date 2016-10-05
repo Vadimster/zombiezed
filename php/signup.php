@@ -97,13 +97,60 @@ require_once('db.php');
 						$stmt->bindParam(':water_start', $water_start, PDO::PARAM_INT);
 						$stmt->execute();				
 
+						//CREATE MAP IN DB
+						$pdo->beginTransaction();						
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 1, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 2, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 3, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 4, 1, 0, 1)"); //gate
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 5, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 6, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 7, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 9, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 10, 2, 0, 1)"); //grass						
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 11, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 12, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 13, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 14, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 14, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 16, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 17, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 18, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 19, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 20, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 21, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 22, 1, 0, 1)"); //gate
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 23, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 24, 0, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 25, 3, 1, 1)"); //HQ
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 26, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 27, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 28, 1, 0, 1)"); //gate
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 29, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 30, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 31, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 32, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 33, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 34, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 35, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 36, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 37, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 38, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 39, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 40, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 41, 2, 0, 1)"); //grass
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 42, 0, 0, 1)"); //defences	
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 43, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 44, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 45, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 46, 1, 0, 1)"); //gate
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 47, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 48, 0, 0, 1)"); //defences
+						$pdo->exec("INSERT INTO players_map_test (player_id, tile_id, tile_type, tile_level, tile_health) VALUES ('$player_id', 49, 0, 0, 1)"); //defences
+						$pdo->commit();
 
-
-						//CREATE MAP IN DB	
-
-						
+						//SET RESPONSE STATUS
 						$json['status'] = 1;						
-
 
 						//send welcome email
 						ini_set( 'display_errors', 1 );

@@ -54,12 +54,13 @@ session_start();
 							success: function(response){
 								if(response.status === 1){
 									//update divs accordingly formt the array passed from DB.
-									$('#player-stats-item-username').removeClass('spinner');
+									$('#player-stats-item-username, #player-stats-item-population-val, #player-stats-item-food-val, #player-stats-item-water-val').removeClass('spinner');
 									$('#player-stats-item-username').html(response.username);
-
+									$('#player-stats-item-population-val').html(response.population);
+									$('#player-stats-item-food-val').html(response.food);
+									$('#player-stats-item-water-val').html(response.water);
 								} else {
 									alert('Game data cannot be loaded, pelase refresh the page or try later');
-
 								}
 
 							}		

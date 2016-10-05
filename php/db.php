@@ -27,10 +27,32 @@ DB schema
 	table players_stats_test
 
 
-		id 				| smallint, unsigned, autoincrement, primary key
+		id 				| smallint, unsigned, primary key
 		population		| smallint, unsigned
 		food 			| mediumint, unsigned
 		water 			| mediumint, unsigned
+
+
+
+	table players_map_test
+
+		id 				| in, autoincrement, primary key - serves as row id
+		player_id		| smallint, unsigned, index
+		tile_id			| tinyint, unsigned			
+			1 - 49
+
+		tile_type		| tinyint, unsigned			
+			0 = defences
+			1 = gate
+			2 = grass
+			3 = HQ
+			4 = house
+			5 = well
+
+		tile_level		| tinyint, unsigned
+		tile_health		| decimal(3,2) 
+
+			values 0.00 - 1.00
 
 */
 
