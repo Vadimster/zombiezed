@@ -59,6 +59,10 @@ session_start();
 									$('#player-stats-item-population-val').html(response.population);
 									$('#player-stats-item-food-val').html(response.food);
 									$('#player-stats-item-water-val').html(response.water);
+									tilesData = response.map;
+									mapRender();
+									//console.log(tiles);
+									//console.log(response.map[0].tile_health);
 								} else {
 									alert('Game data cannot be loaded, pelase refresh the page or try later');
 								}
@@ -75,5 +79,6 @@ session_start();
 </HTML>
 
 
-<script type="text/javascript" src="js/signup.js"></script>
+<!-- <script type="text/javascript" src="js/signup.js"></script> -->
+<script type="text/javascript" src="js/map.js"></script>
 
