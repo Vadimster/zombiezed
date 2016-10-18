@@ -83,6 +83,23 @@ body {
   background-repeat: no-repeat;
 }
 
+#map-container{
+  border: 1px dotted blue;
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+.tile{
+  position: absolute;
+  color: red;
+  font-size: 0.5em;
+  height: 50px;
+  width: 50px;
+  background-color: grey;
+  background-repeat: no-repeat;
+}
+
 
 
 

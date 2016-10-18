@@ -36,19 +36,20 @@ DB schema
 
 	table players_map_test
 
-		id 				| in, autoincrement, primary key - serves as row id
+		id 				| in, autoincrement, primary key - serves as row id		
+
 		player_id		| smallint, unsigned, index
 		tile_id			| tinyint, unsigned			
 			1 - 49
-
+		tile_y 			| tinyint, unsigned - row of the tile in 2D array
+		tile_x 			| tinyint, unsigned - column of the tile in 2D array
 		tile_type		| tinyint, unsigned			
-			0 = defences
-			1 = gate
-			2 = grass
-			3 = HQ
-			4 = house
-			5 = well
-
+			1 = defences
+			2 = gate
+			3 = grass
+			4 = HQ
+			5 = house
+			6 = well
 		tile_level		| tinyint, unsigned
 		tile_health		| decimal(3,2) 
 

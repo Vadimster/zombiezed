@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once('db.php');
+require_once('logger.php');
+
 $json = array(
 		"status" => null, 
 			// 1 = OK. Player found in DB.
@@ -27,6 +29,10 @@ if($_POST['username'] == "" || $_POST['password'] == ""){
 	if(isset($result["id"])){
 		$json['status'] = 1; //username found in the DB
 		$json['description'] = "Login OK";
+		
+		$testvalue = 100;
+		logger("test value is ".$testvalue);
+		
 		$player_id = $result["id"];
 		$_SESSION['player_id'] = $player_id;
 		$sql = "UPDATE players_test SET last_login_date = :value WHERE id = :id";

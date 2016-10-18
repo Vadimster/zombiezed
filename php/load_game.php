@@ -44,6 +44,8 @@ $json = array( //this is AJAX response
 		$json["map"][] = array( //add only selected attributes
 			"tile_health" => $row["tile_health"],
 	        "tile_id" => $row["tile_id"],
+	        "tile_y" => $row["tile_y"],
+	        "tile_x" => $row["tile_x"],
 	        "tile_level" => $row["tile_level"],
 	        "tile_type" => $row["tile_type"]
 			);  		

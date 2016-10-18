@@ -29,18 +29,20 @@ session_start();
 			  </div>
 			  <div class="player-stats-item">
 			    <div id="player-stats-item-population-img" title="Population"></div>
-			    <div class="stats-value spinner" id="player-stats-item-population-val"></div>
+			    <div class="stats-value spinner" id="player-stats-item-population-val">0</div>
 			  </div>
 			  <div class="player-stats-item">
 			    <div id="player-stats-item-food-img" title="Food"></div>
-			    <div class="stats-value spinner" id="player-stats-item-food-val"></div>
+			    <div class="stats-value spinner" id="player-stats-item-food-val">0</div>
 
 			  </div>
 			  <div class="player-stats-item">
 			    <div id="player-stats-item-water-img" title="Water"></div>
-			    <div class="stats-value spinner" id="player-stats-item-water-val"></div>
+			    <div class="stats-value spinner" id="player-stats-item-water-val">0</div>
 			  </div>
 			</div>
+
+			<div id="map-container"></div>
 			
 			<script>
 				$(document).ready(function() {
@@ -53,16 +55,19 @@ session_start();
 							data: data,
 							success: function(response){
 								if(response.status === 1){
-									//update divs accordingly formt the array passed from DB.
+									//UPDATE PLAYER STATS
 									$('#player-stats-item-username, #player-stats-item-population-val, #player-stats-item-food-val, #player-stats-item-water-val').removeClass('spinner');
 									$('#player-stats-item-username').html(response.username);
-									$('#player-stats-item-population-val').html(response.population);
-									$('#player-stats-item-food-val').html(response.food);
-									$('#player-stats-item-water-val').html(response.water);
-									tilesData = response.map;
-									mapRender();
-									//console.log(tiles);
-									//console.log(response.map[0].tile_health);
+									playerStatsCounterMassUpdate(response.population, response.food, response.water);
+									
+									//HANDLE THE MAP ARRAY
+									response.map.sort(function(obj1, obj2){  //sort array ASC based on tile_id value in every object
+										return obj1.tile_id - obj2.tile_id;
+									});
+					//TO DO ---- possibly convert string values in the array to numeric values? Number(string) for integers and parseFloat(string)?
+
+									map.prepare(response.map);					
+									
 								} else {
 									alert('Game data cannot be loaded, pelase refresh the page or try later');
 								}
@@ -80,5 +85,7 @@ session_start();
 
 
 <!-- <script type="text/javascript" src="js/signup.js"></script> -->
+<script type="text/javascript" src="js/stats.js"></script>
+<script type="text/javascript" src="js/buildings.js"></script>
 <script type="text/javascript" src="js/map.js"></script>
 
