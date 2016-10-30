@@ -86,6 +86,5 @@ session_start();
 
 <!-- <script type="text/javascript" src="js/signup.js"></script> -->
 <script type="text/javascript" src="js/stats.js"></script>
-<script type="text/javascript" src="js/buildings.js"></script>
 <script type="text/javascript" src="js/map.js"></script>
 
