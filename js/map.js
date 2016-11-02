@@ -20,8 +20,8 @@ var map = {
 	y: 7, //rows
 	x: 7, //columns
 	tiles: [], //array to contain tile objects.
-	tileHeight: 60,
-	tileWidth: 60,
+	tileHeight: 80,
+	tileWidth: 80,
 	prepare: function(array){ //array from AJAX response with tiles info from DB
 		console.log(array);
 		console.log('map.prepare() launched');

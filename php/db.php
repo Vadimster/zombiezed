@@ -44,12 +44,20 @@ DB schema
 		tile_y 			| tinyint, unsigned - row of the tile in 2D array
 		tile_x 			| tinyint, unsigned - column of the tile in 2D array
 		tile_type		| tinyint, unsigned			
-			1 = defences
-			2 = gate
-			3 = grass
-			4 = HQ
-			5 = house
-			6 = well
+			1 = defences horizontal top: ==
+			2 = defence horizontal bottom
+			3 = defence vertical right
+			4 = defences vertical left			
+			5 = defence top left corner
+			6 = defence top right corner
+			7 = defence bottom left corner
+			8 = defence bottom right corner		
+			9 = gate horizontal top
+			10 = gate horizontal bottom
+			11 - gate vertical left
+			12 = gate vertical right
+			13 = grass
+			14 = HQ
 		tile_level		| tinyint, unsigned
 		tile_health		| decimal(3,2) 
 
