@@ -1,12 +1,12 @@
 <?php 
 session_start();
-
 ?>
 <HTML>
 	<HEAD>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
 		<link rel='icon' href='img/favicon.ico?v=2'/ >
-		<TITLE>ZZ Test</TITLE>
+		<TITLE>Pantheon Online</TITLE>
 		<script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
 		<script type="text/javascript" src="jquery/jquery-ui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="styles/signup.css" />
@@ -15,58 +15,62 @@ session_start();
 	</HEAD>
 
 	<BODY>
-		<div class="globalWrapperTable">
-			<div class="globalWrapperCell">
-				<div class="globalContent"> <!-- cgeck if this div is global? May be this can be pure signup form div? --> 
-					<form id="form-signup" onsubmit="return false">
-						<!-- onkeyup: function to restrict input on front end through regex -->
-						<!-- onblur: once field loses focus this is when field value check to be performed against the DB-->
-						<!-- onfocus: when cursor set in the field idea is to clear any error messages the form might have. Such error is placed in a specific div. Function could be emptyElement('elementID') and can be used for other purposes too.-->
-							<label for="signupUsername">Username:</label>
-							<input id="signupUsername" type="text" maxlength="10" placeholder="max 10 characters" onkeyup="restrictInput('signupUsername')" onblur="signupValidate('signupUsername')" onfocus="signupEmptyElement('errorUsername')"> <!--  -->
-							<div  id="signupUsername-status"class="form-check-status"></div> <!-- will show .gif spinner and check/cross-->	
-							<span class="form-field-note">letters and numbers only</span>
-							<span id="errorUsername" class="form-field-error"></span>
-							<br />														
-							
-							<label for="signupEmail">Email address:</label>
-							<input id="signupEmail" type="text" maxlength="50" placeholder="max 50 characters" onkeyup="restrictInput('signupEmail')" onblur="signupValidate('signupEmail')" onfocus="signupEmptyElement('errorEmail')"> <!--  -->
-							<div id="signupEmail-status" class="form-check-status" ></div> <!-- will show .gif spinner and check/cross-->	
-							<span id="errorEmail" class="form-field-error"></span>
-							<br />
-							
-							<label for="signupPassword">Password:</label>
-							<input id="signupPassword" type="password"> 
-							<br />
+		<form id="form-signup" class="signup">
+			<label for="signup-username" class="signup">Username:</label>
+			<input  id="signup-username" type="text" maxlength="15" placeholder="max 15 characters"></input>
+			<div  id="signup-username-status" class="form-field-check"></div> <!-- will show .gif spinner and check/cross-->	
+			<span class="form-field-note">letters and numbers only</span>
+			<span id="signup-error-username" class="form-field-error"></span>
+			<br />
 
-							<label for="signupConfirmPassword">Confirm password:</label>
-							<input id="signupConfirmPassword" type="password" onblur="signupValidate('signupConfirmPassword')" onfocus="signupEmptyElement('errorPassword')"> <!--  -->
-							<div id="signupConfirmPassword-status" class="form-check-status" ></div>
-							<span id="errorPassword" class="form-field-error"></span>
-							<br />							
-					</form>
-					<div id="register-button" onclick="signupRegister()">REGISTER</div>
-					<div id="player-login">
-						<div id="player-login-icon"></div>
-						<div id="player-login-text">Existing leaders login <a href="javascript:signupLogin()">here</a></div>	
-					</div>
-				</div>
-			</div>
-		</div>
+			<label for="signup-email" class="signup">Email address:</label>
+			<input  id="signup-email" type="text" maxlength="50" placeholder="max 50 characters"></input>
+			<div id="signup-email-status" class="form-field-check" ></div> <!-- will show .gif spinner and check/cross-->	
+			<span class="form-field-note">activation email will be sent</span>
+			<span id="signup-error-email" class="form-field-error"></span>
+			<br />
 
-		<div id="player-login-dialog">
-			<form id="form-login" onsubmit="return false">
-				<label for="">Username:</label>
-				<input id="login-username" type="text" maxlength="10" onfocus="signupEmptyElement('login-error')">
-				<label for="">Password:</label>
-				<input id="login-password" type="password" onfocus="signupEmptyElement('login-error')">
-				<div id="login-error"></div>
-			</form>
+			<label for="signup-password" class="signup">Password:</label>
+			<input  id="signup-password" type="password" minlength="50" placeholder="min 5 characters"></input>
+			<br />
 
+			<label for="signup-confirmpassword" class="signup">Confirm password:</label>
+			<input  id="signup-confirmpassword" type="password" minlength="50" placeholder="min 5 characters"></input>
+			<div id="signup-confirmpassword-status" class="form-field-check" ></div>
+			<span id="signup-error-confirmpassword" class="form-field-error"></span>
+
+			<div id="register-progress"></div>
+
+		</form>
+
+
+		<div id="register-button" onclick="user.register.registerUser()">REGISTER</div>
+		
+
+		<div id="login-box">
+			<div id="login-icon"></div>
+			<div id="login-text">Existing players login <a href="javascript:user.login.startModalDialogue()">here</a></div>	
 		</div>
 
 
-		<script type="text/javascript" src="js/signup.js"></script>
+		<div id="modal-login" class="modal">
+			<div id="modal-login-content">
+				<a href="javascript:user.login.closeModalDialogue()" title="Close" class="modal-close-button">X</a>
+				<form>				
+					<label for="login-username" class="login">Username:</label>
+					<input  id="login-username" type="text"></input>
+					<br />
+
+					<label for="login-password" class="login">Password:</label>
+					<input  id="login-password" type="password"></input>
+					<div id="login-error"></div>
+					<a href="javascript:user.login.loginUser()" title="Login" class="login">Login</a>
+				</form>
+			</div>		
+		</div>
+
+		<script type="text/javascript" src="js/user.js"></script>
+
 	</BODY>
 </HTML>
 
