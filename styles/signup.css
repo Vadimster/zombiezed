@@ -1,7 +1,9 @@
 html, 
 body {
   height: 100vh;
-  overflow: auto; 
+  overflow: auto;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+ 
 }
 
 body { /* can also be whatever container */
@@ -22,7 +24,6 @@ form.signup {
   width: 350px;
   border: 1px solid black;
   border-radius: 5px;
-  font-family: sans-serif;
 }
 
 label.signup{
@@ -151,6 +152,7 @@ span.form-field-error{
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
+
 }
 
 #login-icon{ 
@@ -196,7 +198,8 @@ filter: blur(3px);
   width: 300px;
   border: 1px solid black;
   border-radius: 5px;
-  font-family: sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+
 }
 
 .modal-close-button {
@@ -233,7 +236,6 @@ filter: blur(3px);
   padding: 5px;
   margin: 0 auto;
   margin-top: 15px;
-  font-family: sans-serif;
   font-size: 0.8em;
   background-image: none;
   background-repeat: no-repeat;

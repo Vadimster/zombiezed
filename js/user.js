@@ -6,7 +6,9 @@ var user = {
 
 			loginOK: function(){
 				console.log('Login OK!');
-				window.location.href = '../pantheon/game.php';
+				//window.location.href = '../pantheon/lobby.php';
+				window.location.href = '../pantheon/php/lobby.php';
+
 			},
 
 			loginNotOK: function(){
@@ -51,13 +53,13 @@ var user = {
 			console.log(' -> user.logout.logoutUser() lunched');
 			var data = {action:'logout'};			
 			$.ajax({
-				url: 'php/ajaxhandler.php',
+				url: '../php/ajaxhandler.php',
 				dataType: 'json',
 				type: 'post',
 				data: data,
 				success: function(response){
 					if(response.msg){
-						window.location.href = '../pantheon/index.php';
+						window.location.href = '../index.php';
 						console.log('Logget out');
 					} 
 				}

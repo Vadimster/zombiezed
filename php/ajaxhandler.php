@@ -2,6 +2,7 @@
 session_start();
 /* handles all AJAX requests and calls relevant methods of classes */
 require 'classes/class.player.php';
+require 'classes/class.lobby.php';
 //require_once('/Users/instantbank/Sites/pantheon/php/classes/class.db.php');
 require_once('classes/class.db.php');
 
@@ -33,18 +34,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){ //all requests should reach this page 
 
 	} else if (isset($_POST['action']) && $_POST['action'] === 'logout'){
 		$player = new Player();
-
 		$result = $player -> logout();
 		if($result){
-			$json['msg'] = $result;
+			$json['msg'] = $result; //refactor this same as in "action" = "play" to exclude creating an unnecessary array. May be functions in Player class can already return an array?
 			echo json_encode($json);
 		} else {
 			error_log('Error in $player -> logout()');
 		}
 	
-	} else if (isset($_POST['action']) && $_POST['action'] === 'play'){
-		//erver dolzhne provertij esj li dostupnaja igra. Esli estj - to podklu4itj novogo igroka, esli net, to sozdatj novuju igru i zhdatj podklj4enija drugogo igroka v te4enie 30 sekund. Esli ne podklu4ilsa - prerataj igru i vidaj o6ibki “Currently no players up for game, try later on.”
-
+	} else if (isset($_POST['action']) && $_POST['action'] === 'play'){ // Player is in search of a game.
+		$lobby = new Lobby();
+		$db = new Database();
+		$result = $lobby -> initiateGame($db);
+		if($result){
+			echo json_encode($result);
+		} else {
+			error_log('My Error in $lobby -> initiateGame(). Expected to return smth to Client but got nothing instead');
+		}
 	}  
 
 
@@ -52,28 +58,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){ //all requests should reach this page 
 } else { //Request is not POST, show error on page.
 	echo '<p>This page is visited incorrectly. Sorri-ta.</p>';
 }
-
-
-
-
-/*
-
-
-*/
-
-
-
-/*
-
-				if(!empty($_POST['username']) && !empty($_POST['password'])){
-
-
-
-
-
-
-
-				} 
-*/
 
 ?>
