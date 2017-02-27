@@ -1,0 +1,217 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.blur {
+-webkit-filter: blur(3px);
+-moz-filter: blur(3px);
+filter: blur(3px);
+}
+
+.test{
+	height: 100px;
+	width: 100px;
+	background: yellow;
+	display: none;
+}
+
+
+
+.spinner{
+	width: 30px; 
+	height: 30px;
+	background-image: url('../img/signup/spinner.gif');
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}
+
+.centered{ 
+  text-align:center;
+}
+
+.stats-value{
+  text-align:center;
+  font-size: 1.1em;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.player-stats-item {
+ /* border: 1px dotted green; */
+  height: 55px;
+  width: 35px;
+  margin: 0 10px;
+}
+
+.player-rank-detail{
+  /*border: 1px dotted green;*/
+  height: 55px;
+  padding: 0 5 0 5px;
+}
+
+#player-stats-rank-img{
+  width: 35px;
+  height: 35px;
+  /* border: 1px dotted blue; */
+  margin: auto;
+  background-image: none;
+  background-repeat: no-repeat;
+}
+
+#player-stats-rank-name{
+  /* border: 1px dotted blue; */
+
+}
+
+#player-stats-container {
+  border: 1px solid grey;
+  border-radius: 20px;
+  background: #eee;
+  height: 70px;
+  width:  100%;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+.stats-button{  
+  width: 35px;
+  height: 35px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.stats-button:hover{
+  border-color: white;
+  background-color: white;
+}
+
+
+
+#player-stats-item-population-img{
+  background-image: url('../img/game/main_stats/population.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-leadership-img{
+  background-image: url('../img/game/main_stats/leadership.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-food-img{ 
+  background-image: url('../img/game/main_stats/food.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-settings-img{
+  background-image: url('../img/game/main_stats/settings.png');
+  background-repeat: no-repeat;
+
+}
+
+
+
+#map-container{
+  position: relative;
+  display: none; /*block*/
+  margin-left: auto;
+  margin-right: auto;
+  width: 560px;
+  /* height: 350px; */
+}
+
+.tile{
+  position: absolute;
+  color: white;
+  font-size: 0.5em;
+  height: 80px;
+  width: 80px;
+  background-color: null;
+  background-repeat: no-repeat;
+
+}
+
+.tile:hover{
+  -webkit-box-shadow:inset 0px 0px 0px 1px #CCC;
+  -moz-box-shadow:inset 0px 0px 0px 1px #CCC;
+  box-shadow:inset 0px 0px 0px 1px #CCC;
+}
+
+
+
+#modal-dialogue{
+  display: none;
+}
+
+
+.modal { /* The Modal (background) */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* background-color: rgb(0,0,0); */ /* Fallback color */
+  /* background-color: rgba(0,0,0,0.4); */ /* Black w/ opacity */
+}
+
+#modal-dialogue-content { /* Modal Content/Box */
+  /* display: flex;*/
+  background-color: white; /* #fefefe*/
+  height: 450px;
+  width: 750px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+
+}
+
+.modal-close-button {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 20px;
+  float: right;
+  position: relative;
+  right: -10px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.modal-close-button:hover, 
+.modal-close-button:focus { 
+  background: #00d9ff; 
+}
+
+
+
+
+
