@@ -179,7 +179,7 @@ class Player extends Database {
 						$stmt = $pdo->prepare($sql);
 
 							$rank_start = 0;
-							$leadership_start = 1;
+							$leadership_start = 30;
 							$population_start = 3;
 							$food_start = 20;
 

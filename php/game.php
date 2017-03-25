@@ -15,7 +15,7 @@ session_start();
 		<?php if(isset($_SESSION['player_username'])){ ?> 
 		<div id="game-area">
 			<div class="flex" id="player-stats-container">
-			  <div class="player-rank-detail">
+			  <div class="player-rank-detail" id="player-rank-detail" title="Ranks">
 			    <div class="centered" id="player-stats-rank-img"></div>
 			    <div class="stats-value" id="player-stats-rank-name"><?php echo $_SESSION['player_username'] ?></div>
 			  </div>
@@ -28,14 +28,40 @@ session_start();
 			    <div class="stats-button" id="player-stats-item-population-img" title="Population"></div>
 			    <div class="stats-value" id="player-stats-item-population-val">0</div>
 			  </div>
+			  
 			  <div class="player-stats-item">
 			    <div class="stats-button" id="player-stats-item-food-img" title="Food"></div>
 			    <div class="stats-value" id="player-stats-item-food-val">0</div>
-
 			  </div>
+
 			  <div class="player-stats-item">
+			    <div class="stats-button" id="player-stats-item-schedule-img" title="Schedule"></div>
+			    <div class="stats-value" id="player-stats-item-schedule-val"></div>
+			  </div>
+
+			 <div class="player-stats-item">
+ 			    <div class="stats-button" id="player-stats-item-supplies-img" title="Supplies"></div>
+			    <div class="stats-value" id="player-stats-item-supplies-val"></div>
+	 	    </div>
+
+			<div class="player-stats-item">
+			    <div class="stats-button" id="player-stats-item-politics-img" title="Politics"></div>
+			    <div class="stats-value" id="player-stats-item-politics-val"></div>
+			</div>
+
+			<div class="player-stats-item">
+			    <div class="stats-button" id="player-stats-item-world-img" title="World"></div>
+			    <div class="stats-value"></div>
+			</div>
+
+			<div class="player-stats-item">
+			    <div class="stats-button" id="player-stats-item-messages-img" title="Messages"></div>
+			    <div class="stats-value" id="player-stats-item-messages-val">0</div>
+			</div>
+
+			<div class="player-stats-item">
 			    <div class="stats-button" id="player-stats-item-settings-img" title="Settings"></div>
-			    <div class="stats-value" id="player-stats-item-settings-val">0</div>
+			    <div class="stats-value" id="player-stats-item-settings-val"></div>
 			  </div>
 			</div>
 

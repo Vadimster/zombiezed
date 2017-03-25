@@ -67,6 +67,7 @@ filter: blur(3px);
   margin: auto;
   background-image: none;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 #player-stats-rank-name{
@@ -117,6 +118,33 @@ filter: blur(3px);
   background-image: url('../img/game/main_stats/food.png');
   background-repeat: no-repeat;
 }
+
+#player-stats-item-schedule-img{ 
+  background-image: url('../img/game/main_stats/schedule.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-supplies-img{ 
+  background-image: url('../img/game/main_stats/supplies.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-politics-img{ 
+  background-image: url('../img/game/main_stats/politics.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-world-img{
+  background-image: url('../img/game/main_stats/world.png');
+  background-repeat: no-repeat;
+
+}
+
+#player-stats-item-messages-img{ 
+  background-image: url('../img/game/main_stats/messages.png');
+  background-repeat: no-repeat;
+}
+
 
 #player-stats-item-settings-img{
   background-image: url('../img/game/main_stats/settings.png');
@@ -183,8 +211,46 @@ filter: blur(3px);
   border: 1px solid black;
   border-radius: 5px;
   font-family: "Comic Sans MS", cursive, sans-serif;
-
 }
+
+
+#modal-dialogue-description{
+  /* display: flex;*/
+  /* border: 1px dotted green; */
+  padding: 10px;
+}
+
+#modal-dialogue-ranks-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.modal-dialogue-ranks-rank-box{
+  width: 125px;
+  height: 150px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.modal-dialogue-ranks-rank-img{
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 125px;
+  height: 120px;
+}
+
+.modal-dialogue-ranks-rank-name{
+  width: 125px;
+  height: 30px;
+  text-align: center;
+}
+
+
+
 
 .modal-close-button {
   background: #606061;
@@ -209,6 +275,17 @@ filter: blur(3px);
 .modal-close-button:hover, 
 .modal-close-button:focus { 
   background: #00d9ff; 
+}
+
+#modal-dialogue-title{
+  height: 25px;
+  background-color: #eeeeee;
+  /* border: 1px dotted green;*/
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.1em;
+
 }
 
 
