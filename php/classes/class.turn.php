@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__.'/class.weather.php');
+require_once(__DIR__.'/class.calendar.php');
 
 class Turn extends Database {
 
@@ -10,11 +10,11 @@ class Turn extends Database {
 
 		//1. GLOBAL IMPACT CALCULATION
 
-			//1. update metheorology
-			$weatherObject = new Weather;
-			$weather = $weatherObject -> update($db);
+			//1. update calendar & weather
+			$calendarObject = new Calendar;
+			$calendar = $calendarObject -> update($db);
 
-			error_log(print_r($weather, TRUE));
+			error_log(print_r($calendar, TRUE));
 
 	}
 

@@ -137,7 +137,16 @@ filter: blur(3px);
 #player-stats-item-world-img{
   background-image: url('../img/game/main_stats/world.png');
   background-repeat: no-repeat;
+}
 
+#player-stats-item-market-img{
+  background-image: url('../img/game/main_stats/market.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-calendar-img{
+  background-image: url('../img/game/main_stats/calendar.png');
+  background-repeat: no-repeat;
 }
 
 #player-stats-item-messages-img{ 
@@ -149,7 +158,6 @@ filter: blur(3px);
 #player-stats-item-settings-img{
   background-image: url('../img/game/main_stats/settings.png');
   background-repeat: no-repeat;
-
 }
 
 

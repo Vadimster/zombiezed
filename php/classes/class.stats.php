@@ -15,6 +15,16 @@ class Stats extends Database {
 			$response['leadership'] = $result['leadership'];  	
 			$response['population'] = $result['population'];  	
 			$response['food'] = $result['food'];
+
+
+		$sql = "SELECT * FROM calendar LIMIT 1";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			$response['season'] = $result['season']; 
+			$response['month'] = $result['month'];
+			$response['week'] = $result['week'];
+			    
 		return $response;
 	}
 }

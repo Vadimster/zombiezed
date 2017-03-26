@@ -55,6 +55,17 @@ session_start();
 			</div>
 
 			<div class="player-stats-item">
+			    <div class="stats-button" id="player-stats-item-market-img" title="Market"></div>
+			    <div class="stats-value"></div>
+			</div>
+
+			<div class="player-stats-item">
+			    <div class="stats-button" id="player-stats-item-calendar-img" title="Calendar"></div>
+			    <div class="stats-value" id="player-stats-item-calendar-val"></div>
+			</div>
+
+
+			<div class="player-stats-item">
 			    <div class="stats-button" id="player-stats-item-messages-img" title="Messages"></div>
 			    <div class="stats-value" id="player-stats-item-messages-val">0</div>
 			</div>
