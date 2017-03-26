@@ -6,7 +6,6 @@ require_once(__DIR__.'/classes/class.player.php');
 require_once(__DIR__.'/classes/class.map.php');
 require_once(__DIR__.'/classes/class.stats.php');
 
-
 if(!empty($_POST)){ //will run code if POST is not empty.
 	
 	if(isset($_POST['action']) && $_POST['action'] === 'signup'){	//REQUEST 1: validate client input and add player to DB
@@ -96,7 +95,7 @@ if(!empty($_POST)){ //will run code if POST is not empty.
 			error_log('Error. Nothing returned by $player -> fetch()');
 		}
 
-	}				
+	} 	
 	
 } else { //Request is neither GET nor POST or either GET or POST requests are empty.
 	echo '<p>This page is visited incorrectly. Sorri-ta.</p>';

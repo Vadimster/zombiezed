@@ -43,7 +43,7 @@ var stats = {
 					stats.drawAll(response);		
 
 				} else {
-					console.log('Game data cannot be loaded, pelase refresh the page or try later');
+					alert('Game data cannot be loaded, pelase refresh the page or try again later');
 				}
 			}
 		});	
@@ -126,7 +126,25 @@ var modalDialogue = {
 		if (element.id === 'player-stats-item-settings-img'){
 			console.log('will build dialogue for Settings now');
     		$('<ul id="settings-list"> </ul>').appendTo('#modal-dialogue-content');
-    			$('<li> <a href="#" title="run cron job">Turn - Run cron Job</a> </li>').appendTo('#settings-list').click(function(event) {
+    			$('<li> <a href="#" title="run cron job">Turn - Run cron Job</a> </li>').appendTo('#settings-list').click(function(event) {    				
+					var data = {action:'turn'};			
+					$.ajax({
+						url: '../php/cronjobs/turn.php?', 
+						dataType: 'json', 
+						type: 'get',  
+						cache: false, 
+						data: data,
+						success: function(response){
+							if(response){
+								console.log('Cron job run succcessfully. Season is ' + response.season);
+							} else {
+								alert('Turn cron job failed to respond, try again');
+							}
+						}
+					});	
+
+
+
     				console.log('will run cron job now');
     			});
 
