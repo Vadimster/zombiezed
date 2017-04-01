@@ -12,8 +12,10 @@ class Stats extends Database {
 		$stmt->execute();
 		$result = $stmt->fetch(PDO::FETCH_ASSOC);
 			$response['rank'] = $result['rank'];  	
-			$response['leadership'] = $result['leadership'];  	
-			$response['population'] = $result['population'];  	
+			$response['leadership'] = $result['ld'];
+			$response['leadershipGained'] = $result['ld_per_turn'];
+				$response['ld_base_pop'] = $result['ld_base_pop']; //from base popualation
+			$response['population'] = $result['population'];
 			$response['food'] = $result['food'];
 
 
@@ -24,6 +26,9 @@ class Stats extends Database {
 			$response['season'] = $result['season']; 
 			$response['month'] = $result['month'];
 			$response['week'] = $result['week'];
+			    
+		error_log(print_r($response, TRUE)); 
+
 			    
 		return $response;
 	}

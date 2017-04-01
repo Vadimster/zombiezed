@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__.'/class.consandmods.php');
+
 class Player extends Database {
 
 	public function validateUsername($db, $username){ //Checks if username already exists in DB
@@ -175,12 +177,12 @@ class Player extends Database {
 
 						
 
-						$sql = "INSERT INTO players_stats (player_id, rank, leadership, population, food) VALUES (:player_id, :rank_start, :leadership_start, :population_start, :food_start)";
+						$sql = "INSERT INTO players_stats (player_id, rank, ld, population, food) VALUES (:player_id, :rank_start, :leadership_start, :population_start, :food_start)";
 						$stmt = $pdo->prepare($sql);
 
 							$rank_start = 0;
-							$leadership_start = 30;
 							$population_start = 3;
+							$leadership_start = $population_start * _LeadershipPerPopulation;							
 							$food_start = 20;
 
 						$stmt->bindParam(':player_id', $player_id, PDO::PARAM_INT);

@@ -36,7 +36,9 @@ var stats = {
 			data: data,
 			success: function(response){
 				if(response){
-					stats.leadership.value  = response.leadership;
+					stats.leadership.currentValue  = response.leadership;
+					stats.leadership.modifiers.fromBasePopulation = response.ld_base_pop;
+					stats.leadership.modifiers.gained = response.leadershipGained;
 					stats.drawAll(response);		
 
 				} else {
@@ -148,7 +150,11 @@ var stats = {
 
 
 	leadership: {
-		value: null
+		currentValue: null,
+		gained: null,
+		modifiers: {
+			fromBasePopulation: null
+		}
 	}
 
 };
@@ -249,7 +255,10 @@ var modalDialogue = {
 
 
 		} else if(element.id === 'player-stats-item-leadership-img'){
-    		$('<p>').appendTo('#modal-dialogue-content').html('Gain per turn: ' +stats.leadership.value);
+    		$('<p>').appendTo('#modal-dialogue-content').html('Available leadership: ' +stats.leadership.currentValue);
+    		$('<p>').appendTo('#modal-dialogue-content').html('leadership gained this turn: ' +stats.leadership.modifiers.gained);
+    		$('<H3>').appendTo('#modal-dialogue-content').html('Breakdown');
+    		$('<p>').appendTo('#modal-dialogue-content').html('From population: ' + stats.leadership.modifiers.fromBasePopulation);
 
     	} else if (element.id === 'player-stats-item-calendar-img'){
     		console.log('will build page for calendar');
