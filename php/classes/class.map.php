@@ -17,6 +17,7 @@ class Map extends Database {
 		        "tile_y" => $row["tile_y"],
 		        "tile_x" => $row["tile_x"],
 				"tile_class" => $row["tile_class"],
+				"tile_category" => $row["tile_category"],				
 				"tile_type" => $row["tile_type"],
 		        "tile_level" => $row["tile_level"],
 		        "tile_health" => $row["tile_health"]

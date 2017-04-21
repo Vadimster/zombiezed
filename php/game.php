@@ -10,6 +10,18 @@ session_start();
 		<TITLE>ZombieZed Camp</TITLE>
 		<script type="text/javascript" src="../js/jquery/jquery-3.1.1.min.js"></script>
 		<link rel="stylesheet" href="../css/game.css" />
+		<link rel="stylesheet" href="../css/map.css" />
+		<link rel="stylesheet" href="../css/stats-panel.css" />
+		<link rel="stylesheet" href="../css/ranks-dialog-page.css" />
+		<link rel="stylesheet" href="../css/modal-global.css" />
+		<link rel="stylesheet" href="../css/tile-info-dialog.css" />
+
+
+
+
+
+
+
 	</HEAD>
 	<BODY>
 		<?php if(isset($_SESSION['player_username'])){ ?> 
@@ -85,5 +97,8 @@ session_start();
 	</BODY>
 </HTML>
 
-
-<script type="text/javascript" src="../js/game.js"></script>
+<script type="text/javascript" src="../js/map.js"></script>
+<script type="text/javascript" src="../js/stats.js"></script>
+<script type="text/javascript" src="../js/statsDialogs.js"></script>
+<script type="text/javascript" src="../js/user.js"></script>
+<script type="text/javascript" src="../js/init.js"></script>

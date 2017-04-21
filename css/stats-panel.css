@@ -1,0 +1,119 @@
+.stats-value{
+  text-align:center;
+  font-size: 1.1em;
+}
+
+.player-stats-item {
+ /* border: 1px dotted green; */
+  height: 55px;
+  width: 35px;
+  margin: 0 10px;
+}
+
+.player-rank-detail{
+  /*border: 1px dotted green;*/
+  height: 55px;
+  padding: 0 5 0 5px;
+  cursor: pointer;
+}
+
+#player-stats-rank-img{
+  width: 35px;
+  height: 35px;
+  /* border: 1px dotted blue; */
+  margin: auto;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#player-stats-rank-name{
+  /* border: 1px dotted blue; */
+}
+
+#player-stats-container {
+  border: 1px solid grey;
+  border-radius: 20px;
+  background: #eee;
+  height: 70px;
+  width:  100%;
+  margin: 0 auto;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+.stats-button{  
+  width: 35px;
+  height: 35px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.stats-button:hover{
+  border-color: white;
+  background-color: white;
+}
+
+
+
+#player-stats-item-population-img{
+  background-image: url('../img/game/main_stats/population.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-leadership-img{
+  background-image: url('../img/game/main_stats/leadership.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-food-img{ 
+  background-image: url('../img/game/main_stats/food.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-schedule-img{ 
+  background-image: url('../img/game/main_stats/schedule.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-supplies-img{ 
+  background-image: url('../img/game/main_stats/supplies.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-politics-img{ 
+  background-image: url('../img/game/main_stats/politics.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-world-img{
+  background-image: url('../img/game/main_stats/world.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-market-img{
+  background-image: url('../img/game/main_stats/market.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-calendar-img{
+  background-image: url('../img/game/main_stats/calendar.png');
+  background-repeat: no-repeat;
+}
+
+#player-stats-item-messages-img{ 
+  background-image: url('../img/game/main_stats/messages.png');
+  background-repeat: no-repeat;
+}
+
+
+#player-stats-item-settings-img{
+  background-image: url('../img/game/main_stats/settings.png');
+  background-repeat: no-repeat;
+}
+

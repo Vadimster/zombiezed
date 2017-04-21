@@ -1,0 +1,29 @@
+
+#modal-dialogue-ranks-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.modal-dialogue-ranks-rank-box{
+  width: 125px;
+  height: 150px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.modal-dialogue-ranks-rank-img{
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 125px;
+  height: 120px;
+}
+
+.modal-dialogue-ranks-rank-name{
+  width: 125px;
+  height: 30px;
+  text-align: center;
+}

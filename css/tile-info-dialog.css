@@ -1,0 +1,10 @@
+.tile-image{
+	height: 150px;
+	width: 150px;
+	border-radius: 5px;
+	border: 1px dotted grey;
+	margin: auto;
+	background-repeat: no-repeat;
+	background-image: none;
+	background-size: contain;
+}

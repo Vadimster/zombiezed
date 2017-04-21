@@ -1,0 +1,72 @@
+#modal-dialogue{
+  display: none;
+}
+
+
+.modal { /* The Modal (background) */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  /* background-color: rgb(0,0,0); */ /* Fallback color */
+  /* background-color: rgba(0,0,0,0.4); */ /* Black w/ opacity */
+}
+
+.modal-close-button {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 20px;
+  float: right;
+  position: relative;
+  right: -10px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.modal-close-button:hover, 
+.modal-close-button:focus { 
+  background: #00d9ff; 
+}
+
+#modal-dialogue-content { /* Modal Content/Box */
+  /* display: flex;*/
+  background-color: white; /* #fefefe*/
+  height: 450px;
+  width: 750px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#modal-dialogue-title{
+  height: 25px;
+  background-color: #eeeeee;
+  /* border: 1px dotted green;*/
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+
+#modal-dialogue-description{
+  /* display: flex;*/
+  /* border: 1px dotted green; */
+  padding: 10px;
+}

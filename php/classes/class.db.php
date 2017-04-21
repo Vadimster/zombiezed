@@ -7,7 +7,7 @@
 
 class Database {
 
-	protected $host  = 'localhost';
+	protected $host  = '127.0.0.1';
 	protected $name  = 'zombiezed';
 	protected $user  = 'root';
 	protected $pass  = 'Uganda666!';
