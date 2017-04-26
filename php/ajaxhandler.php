@@ -5,6 +5,8 @@ require_once(__DIR__.'/classes/class.db.php');
 require_once(__DIR__.'/classes/class.player.php');
 require_once(__DIR__.'/classes/class.map.php');
 require_once(__DIR__.'/classes/class.stats.php');
+require_once(__DIR__.'/classes/class.calendar.php');
+
 
 if(!empty($_POST)){ //will run code if POST is not empty.
 	
@@ -95,7 +97,18 @@ if(!empty($_POST)){ //will run code if POST is not empty.
 			error_log('Error. Nothing returned by $player -> fetch()');
 		}
 
-	} 	
+	} 	else if (isset($_GET['action']) && $_GET['action'] === 'getNextTurn'){
+			error_log('GetNextTurn started on server');
+			$db = new Database();
+			$calendar = new calendar();
+			$result = $calendar -> getNextTurnTime($db);
+			
+			if ($result){
+			echo json_encode($result);
+			} else {
+				error_log('Error. Nothing returned by $player -> $calendar -> getNextTurnDate()');
+			}
+	}
 	
 } else { //Request is neither GET nor POST or either GET or POST requests are empty.
 	echo '<p>This page is visited incorrectly. Sorri-ta.</p>';

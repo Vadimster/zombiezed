@@ -47,6 +47,36 @@ var modalDialogue = {
     			});  
 
 
+    			//sent ajax to server to get time
+				var data = {action: 'getNextTurn'};
+				$.ajax({
+					url: '../php/ajaxhandler.php?', 
+					dataType: 'json', 
+					type: 'get',  
+					cache: false, 
+					data: data,
+					success: function(response){
+						if(response){
+							$('<li> Time on server: '+ new Date(response.serverTime * 1000)+'</li>').appendTo('#settings-list');
+							$('<li> Next turn on: '+ new Date(response.nextTurn * 1000)+'</li>').appendTo('#settings-list');
+							$('<li> Next turn in: '+ response.timeDiff +' seconds</li>').appendTo('#settings-list');
+
+						} else {
+							$('<li> Time on server: Cannot get server time. </li>').appendTo('#settings-list');
+							$('<li> Next turn on: Cannot get data from server. </li>').appendTo('#settings-list');
+							$('<li> Next turn in: Cannot get data from server. </li>').appendTo('#settings-list');
+
+						}
+					}
+				});	
+
+
+
+				var now = new Date();
+				$('<li> Time on client: '+now+' </li>').appendTo('#settings-list');  
+
+
+
 		} else if(element.id === 'player-rank-detail'){
 			console.log('class is .player-rank-detail');
 			$('<div id="modal-dialogue-ranks-wrapper"></div>').appendTo('#modal-dialogue-content');

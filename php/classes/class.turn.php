@@ -1,7 +1,6 @@
 <?php
 
 require_once(__DIR__.'/class.calendar.php');
-require_once(__DIR__.'/class.calendar.php');
 require_once(__DIR__.'/class.leadership.php');
 
 class Turn extends Database {
@@ -12,7 +11,7 @@ class Turn extends Database {
 
 		//1. GLOBAL IMPACT CALCULATION
 
-			//1.1 update calendar & weather
+			//1.1 update calendar & weather & turn timestamps
 			$calendarObject = new Calendar;
 			$calendar = $calendarObject -> update($db);
 

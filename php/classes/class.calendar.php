@@ -6,8 +6,35 @@
 
 class Calendar extends Database{
 
+	public function getNextTurnTime($db){
+		$pdo = new PDO("mysql:host=$db->host;dbname=$db->name", $db->user, $db->pass);
+		$sql = "SELECT next_turn from calendar LIMIT 1";
+			$stmt = $pdo->prepare($sql);
+			$stmt->execute();
+			$result = $stmt->fetch(PDO::FETCH_ASSOC);
+			
+			$response = array();
+			$timestamp = time();
+			$next_turn = $result['next_turn'];
+			$response['serverTime'] = $timestamp;
+			$response['nextTurn'] =  $next_turn;
+			$response['timeDiff'] = $next_turn - $timestamp;//difference in seconds
+			error_log($response['timeDiff']);
+			return $response;
+	}
+
 	public function update($db){
 		error_log('calendar->update() started');
+
+	//SETTING TIMESTAMPS OF CURRENT AND NEXT TURN TIME. consider using a function for this.
+		$timestamp = time();
+		$next_turn_time = strtotime('+1 day', $timestamp);	//preparing timestamp for writing in DB			
+		//$current_turn_time = date("Y-m-d H:i:s",$timestamp); //preparing timestamp for writing in DB
+		
+		//$next_turn_time = date("Y-m-d H:i:s", strtotime('+1 day', $timestamp));	//preparing timestamp for writing in DB			
+		//error_log('Turn start time is ' . $current_turn_time);
+		//error_log('next turn time is ' . $next_turn_time);
+
 
 		$pdo = new PDO("mysql:host=$db->host;dbname=$db->name", $db->user, $db->pass);
 		$sql = 	"SELECT * FROM calendar LIMIT 1";
@@ -24,7 +51,7 @@ class Calendar extends Database{
 			if($calendar['week'] < 4){
 				$calendar['week']++;
 				$week = $calendar['week'];
-				$sql = 	"UPDATE calendar SET week = $week";
+				$sql = 	"UPDATE calendar SET next_turn = '$next_turn_time', week = $week";
 				$stmt = $pdo->prepare($sql);
 				$stmt->execute();
 				
@@ -75,11 +102,11 @@ class Calendar extends Database{
 
 				$week = $calendar['week'];
 				$month = $calendar['month'];
-				$season = $calendar['season'];
-				$sql = 	"UPDATE calendar SET week = $week, month = '$month', season = '$season'"; //strongs must be in single quotes if used in sql statement directly without binding.					
-				$stmt = $pdo->prepare($sql);
-				$stmt->execute();			
+				$season = $calendar['season'];				
 
+				$sql = 	"UPDATE calendar SET next_turn = '$next_turn_time', week = $week, month = '$month', season = '$season'"; //strings must be in single quotes if used in sql statement directly without binding.					
+				$stmt = $pdo->prepare($sql);
+				$stmt->execute();
 			}
 
 			return $calendar;
